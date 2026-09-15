@@ -77,36 +77,53 @@ public class AppointmentRecord {
     // Cancel an appointment
     public static void cancelAppointment(Scanner input) {
 
-        if (appointments.isEmpty()) {
-            System.out.println("\nNo appointments to cancel.");
-            return;
-        }
+    if (appointments.isEmpty()) {
+        System.out.println("\nNo appointments to cancel.");
+        return;
+    }
 
-        viewAppointments();
+    viewAppointments();
 
-        System.out.print("\nEnter appointment number to cancel: ");
+    System.out.print("\nEnter appointment number to cancel: ");
 
-        if (!input.hasNextInt()) {
-            System.out.println("Invalid input! Please enter a number.");
-            input.nextLine();
-            return;
-        }
-
-        int choice = input.nextInt();
+    if (!input.hasNextInt()) {
+        System.out.println("Invalid input! Please enter a number.");
         input.nextLine();
+        return;
+    }
 
-        if (choice < 1 || choice > appointments.size()) {
-            System.out.println("Invalid appointment number.");
-            return;
+    int choice = input.nextInt();
+    input.nextLine();
+
+    if (choice < 1 || choice > appointments.size()) {
+        System.out.println("Invalid appointment number.");
+        return;
+    }
+
+    AppointmentRecord selected = appointments.get(choice - 1);
+
+    if (selected.status.equals("Cancelled")) {
+        System.out.println("This appointment is already cancelled.");
+        return;
+    }
+
+    String confirm;
+    while (true) {
+        System.out.print("Cancel appointment for " + selected.patientName
+                + " on " + selected.date + "? (Y/N): ");
+        confirm = input.nextLine();
+
+        if (confirm.equalsIgnoreCase("Y") || confirm.equalsIgnoreCase("N")) {
+            break;
         }
+        System.out.println("Invalid input! Please enter Y or N.");
+    }
 
-        AppointmentRecord selected = appointments.get(choice - 1);
-
-        if (selected.status.equals("Cancelled")) {
-            System.out.println("This appointment is already cancelled.");
-        } else {
-            selected.status = "Cancelled";
-            System.out.println("Appointment cancelled successfully!");
-        }
+    if (confirm.equalsIgnoreCase("Y")) {
+        selected.status = "Cancelled";
+        System.out.println("Appointment cancelled successfully!");
+    } else {
+        System.out.println("Cancellation aborted.");
+    }
     }
 }
