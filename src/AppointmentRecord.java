@@ -85,12 +85,15 @@ public class AppointmentRecord {
             System.out.println("Patient : " + a.patientName);
             System.out.println("Address : " + a.patientAddress);
             System.out.println("Contact : " + a.patientContact);
+            System.out.println();
+            System.out.println("Dentist : " + a.staff);
             System.out.println("Service : " + a.service);
             System.out.println("Date    : " + a.date.format(DATE_FMT));
             System.out.println("Time    : " + a.time);
-            System.out.println("Staff   : " + a.staff);
             System.out.println("Fee     : PHP " + a.fee);
             System.out.println("Status  : " + a.status);
+            System.out.println("-------------------------------------");
+
         }
     }
 

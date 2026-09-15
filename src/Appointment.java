@@ -151,14 +151,18 @@ public class Appointment {
         serviceFee = Service.FEES[serviceChoice - 1];
 
         // Step 5: Confirm
-        System.out.println("\n===== APPOINTMENT SUMMARY =====");
+        System.out.println("======================================");
+        System.out.println("          APPOINTMENT SUMMARY");
+        System.out.println("======================================");
+        System.out.println();
         System.out.println("Patient Name : " + patientName);
         System.out.println("Address      : " + patientAddress);
         System.out.println("Contact No.  : " + patientContact);
+        System.out.println();
+        System.out.println("Dentist      : " + selectedStaff);
         System.out.println("Service      : " + selectedService);
         System.out.println("Date         : " + date.format(dateFormat));
         System.out.println("Time         : " + appointmentTime);
-        System.out.println("Staff        : " + selectedStaff);
         System.out.println("Estimated Fee: PHP " + serviceFee);
 
         String confirmation;
@@ -182,13 +186,15 @@ public class Appointment {
                 System.out.println("\n======================================");
                 System.out.println("       APPOINTMENT CONFIRMED");
                 System.out.println("======================================");
+                System.out.println();
                 System.out.println("Patient Name : " + patientName);
                 System.out.println("Address      : " + patientAddress);
                 System.out.println("Contact No.  : " + patientContact);
+                System.out.println("Dentist      : " + selectedStaff);
+                System.out.println();
                 System.out.println("Service      : " + selectedService);
                 System.out.println("Date         : " + date.format(dateFormat));
                 System.out.println("Time         : " + appointmentTime);
-                System.out.println("Staff        : " + selectedStaff);
                 System.out.println("Estimated Fee: PHP " + serviceFee);
                 System.out.println("Status       : Confirmed");
                 System.out.println("======================================");
@@ -199,5 +205,6 @@ public class Appointment {
         } else {
             System.out.println("Appointment not confirmed.");
         }
+
     }
 }
