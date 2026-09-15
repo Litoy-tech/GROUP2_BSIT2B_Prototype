@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -187,8 +186,18 @@ public class Appointment {
         System.out.println("Staff        : " + selectedStaff);
         System.out.println("Estimated Fee: PHP " + serviceFee);
 
-        System.out.print("\nConfirm Appointment? (Y/N): ");
-        String confirmation = input.nextLine();
+        String confirmation;
+
+        while (true) {
+            System.out.print("\nConfirm Appointment? (Y/N): ");
+            confirmation = input.nextLine();
+
+            if (confirmation.equalsIgnoreCase("Y") || confirmation.equalsIgnoreCase("N")) {
+                break;
+            }
+
+            System.out.println("Invalid input! Please enter Y or N.");
+        }
 
         if (confirmation.equalsIgnoreCase("Y")) {
 
@@ -222,13 +231,9 @@ public class Appointment {
                 System.out.println("This schedule is already booked.");
             }
 
-        } else if (confirmation.equalsIgnoreCase("N")) {
-
-            System.out.println("Appointment not confirmed.");
-
         } else {
 
-            System.out.println("Invalid input! Please enter Y or N.");
+            System.out.println("Appointment not confirmed.");
         }
     }
 }
