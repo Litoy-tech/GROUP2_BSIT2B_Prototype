@@ -8,7 +8,7 @@ public class Main {
 
         String username = "staff";
         String password = "staff123";
-        String enteredUsername = "";
+        
         System.out.println("======================================");
         System.out.println("       DENTALCARE APPOINTMENT SYSTEM");
         System.out.println("======================================");
@@ -19,7 +19,7 @@ public class Main {
         boolean loggedIn = false;
 
         while (attempts > 0) {
-
+            String enteredUsername = "";
             while(enteredUsername.isEmpty()){
                 System.out.print("Username: ");
                 enteredUsername = input.nextLine();
