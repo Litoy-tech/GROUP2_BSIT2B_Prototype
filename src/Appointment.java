@@ -39,10 +39,10 @@ public class Appointment {
                 serviceChoice = input.nextInt();
                 input.nextLine();
 
-                if (serviceChoice >= 1 && serviceChoice <= 4) {
+                if (serviceChoice >= 1 && serviceChoice <= Service.NAMES.length) {
                     break;
                 } else {
-                    System.out.println("Invalid choice! Please select 1-4.");
+                    System.out.println("Invalid choice! Please select 1-"+ Service.NAMES.length);
                 }
 
             } else {
@@ -50,24 +50,8 @@ public class Appointment {
                 input.nextLine();
             }
         }
-
-        if (serviceChoice == 1) {
-            selectedService = "Dental Check-up";
-            serviceFee = 300;
-
-        } else if (serviceChoice == 2) {
-            selectedService = "Teeth Cleaning";
-            serviceFee = 500;
-
-        } else if (serviceChoice == 3) {
-            selectedService = "Tooth Extraction";
-            serviceFee = 800;
-
-        } else {
-            selectedService = "Dental Filling";
-            serviceFee = 1000;
-        }
-
+            selectedService = Service.NAMES[serviceChoice - 1];
+            serviceFee = Service.FEES[serviceChoice - 1];
         // Select date
         DateTimeFormatter dateFormat =
                 DateTimeFormatter.ofPattern("MM/dd/uuuu")

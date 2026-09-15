@@ -1,15 +1,16 @@
-
 public class Service {
+    public static final String[] NAMES = {
+            "Dental Check-up", "Teeth Cleaning", "Tooth Extraction", "Dental Filling"
+    };
+    public static final int[] FEES = {300, 500, 800, 1000};
 
     public void services() {
-
         System.out.println("\n======================================");
         System.out.println("          DENTAL SERVICES");
         System.out.println("======================================");
-        System.out.println("[1] Dental Check-up     - PHP 300");
-        System.out.println("[2] Teeth Cleaning      - PHP 500");
-        System.out.println("[3] Tooth Extraction    - PHP 800");
-        System.out.println("[4] Dental Filling      - PHP 1000");
+        for (int i = 0; i < NAMES.length; i++) {
+            System.out.printf("[%d] %-20s - PHP %d%n", i + 1, NAMES[i], FEES[i]);
+        }
         System.out.println("======================================");
     }
 }
